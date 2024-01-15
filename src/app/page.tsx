@@ -63,7 +63,7 @@ export default function Home() {
 
 
 		} catch (error) {
-			console.error('Não foi:', error);
+			// console.error('Não foi:', error);
 
 			// não conhecia esse finally
 		} finally {
@@ -107,11 +107,11 @@ export default function Home() {
 				//mas não afetada o front do app
 
 				if (error instanceof Error) {
-					console.error(error);
+					// console.error(error);
 					setHeaderError(error.message);
 
 				  } else {
-					console.error("Ocorreu um erro desconhecido:", error);
+					// console.error("Ocorreu um erro desconhecido:", error);
 					setHeaderError("Ocorreu um erro desconhecido.");
 				  }
 
