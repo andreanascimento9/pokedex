@@ -1,3 +1,13 @@
+## Figma
+
+https://www.figma.com/file/fg9cHKP8gDAkl4hGfKsI3L/Pok%C3%A9dex-(Community)?type=design&node-id=314-3&mode=design&t=PMVnRuC79Q7mAXHR-0
+
+## API
+
+https://pokeapi.co/
+
+## Project
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

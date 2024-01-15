@@ -7,13 +7,13 @@ export default function Card({
 	typePokemon,
 	imagePokemon,
 	routePokemon
-}: CardProps){
+}: CardProps) {
 
-	let	borderColorType
-	let	textColorType
-	let	bgColorType
+	let borderColorType
+	let textColorType
+	let bgColorType
 
-	switch (typePokemon){
+	switch (typePokemon) {
 		case 'fire':
 			borderColorType = 'border-[#F57D31]';
 			textColorType = 'text-[#F57D31]';
@@ -25,13 +25,13 @@ export default function Card({
 			textColorType = 'text-[#74CB48]';
 			bgColorType = 'bg-[#74CB48]';
 			break;
-		
+
 		case 'water':
 			borderColorType = 'border-[#6493EB]';
 			textColorType = 'text-[#6493EB]';
 			bgColorType = 'bg-[#6493EB]';
 			break;
-		
+
 		case 'normal':
 			borderColorType = 'border-[#AAA67F]';
 			textColorType = 'text-[#AAA67F]';
@@ -43,7 +43,7 @@ export default function Card({
 			textColorType = 'text-[#A7B723]';
 			bgColorType = 'bg-[#A7B723]';
 			break;
-		
+
 		case 'eletric':
 			borderColorType = 'border-[#F9CF30]';
 			textColorType = 'text-[#F9CF30]';
@@ -67,7 +67,55 @@ export default function Card({
 			textColorType = 'text-[#B7B9D0]';
 			bgColorType = 'bg-[#B7B9D0]';
 			break;
-		
+
+		case 'poison':
+			borderColorType = 'border-[#730bdd]';
+			textColorType = 'text-[#730bdd]';
+			bgColorType = 'bg-[#730bdd]';
+			break;
+
+		case 'fairy':
+			borderColorType = 'border-[#d0a8b0]';
+			textColorType = 'text-[#d0a8b0]';
+			bgColorType = 'bg-[#d0a8b0]';
+			break;
+
+		case 'ground':
+			borderColorType = 'border-[#BE8F65]';
+			textColorType = 'text-[#BE8F65]';
+			bgColorType = 'bg-[#BE8F65]';
+			break;
+
+		case 'fighting':
+			borderColorType = 'border-[#CC0000]';
+			textColorType = 'text-[#CC0000]';
+			bgColorType = 'bg-[#CC0000]';
+			break;
+
+		case 'rock':
+			borderColorType = 'border-[#aaaaaa]';
+			textColorType = 'text-[#aaaaaa]';
+			bgColorType = 'bg-[#aaaaaa]';
+			break;
+
+		case 'electric':
+			borderColorType = 'border-[#ffde00]';
+			textColorType = 'text-[#ffde00]';
+			bgColorType = 'bg-[#ffde00]';
+			break;
+
+		case 'ice':
+			borderColorType = 'border-[#a8c3dd]';
+			textColorType = 'text-[#a8c3dd]';
+			bgColorType = 'bg-[#a8c3dd]';
+			break;
+
+		case 'dragon':
+			borderColorType = 'border-[#757cbb]';
+			textColorType = 'text-[#757cbb]';
+			bgColorType = 'bg-[#757cbb]';
+			break;
+
 		default:
 			borderColorType = 'border-[#000000]';
 			textColorType = 'text-[#000000]';
@@ -94,7 +142,7 @@ export default function Card({
 
 	let formattedId = formatId(idPokemon);
 
-	return(
+	return (
 		<>
 			<div className={`${className} shadow-lg transition-transform transform hover:-translate-y-2 cursor-pointer border rounded-lg ${borderColorType} ${textColorType} w-full`}>
 				<div className="max-w-[16rem] min-h-[12rem] mx-auto my-auto py-2">
