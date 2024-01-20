@@ -10,6 +10,7 @@ import Card from "./components/Card/Card";
 import { Pagination } from "./components/Pagination/Pagination";
 
 import { SetStateAction, useEffect, useState } from "react";
+import Link from "next/link";
 
 
 export default function Home() {
@@ -110,10 +111,10 @@ export default function Home() {
 					// console.error(error);
 					setHeaderError(error.message);
 
-				  } else {
+				} else {
 					// console.error("Ocorreu um erro desconhecido:", error);
 					setHeaderError("Ocorreu um erro desconhecido.");
-				  }
+				}
 
 			}
 
@@ -127,7 +128,7 @@ export default function Home() {
 				<Header
 					title="Pokedex"
 					pokemonSearch={pokemonSearch}
-					onError={headerError} 
+					onError={headerError}
 				/>
 
 
@@ -141,28 +142,32 @@ export default function Home() {
 				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 					{loading && (
 						<div className="absolute z-10 top-0 left-0 w-full h-full flex items-center justify-center bg-white opacity-75">
-							
-							<Image src={PokeballLoading} alt="Carregando" className="w-40"/>
+
+							<Image src={PokeballLoading} alt="Carregando" className="w-40" />
 						</div>
 					)}
 
 
 
-					{pokemons.map((pokemon, key) => (
-						<Card
-							key={key}
-							className={`capitalize z-0 ${pokemon.types[0].type.name}`}
-							idPokemon={pokemon.id}
-							namePokemon={pokemon.name}
-							imagePokemon={pokemon.sprites.front_default}
-							typePokemon={pokemon.types[0].type.name}
-						/>
+					{pokemons.map((pokemon) => (
+						<Link key={pokemon.id} href={`/pokemon/[pokemonId]`} as={`/pokemon/${pokemon.id}`}>
+
+							<Card
+								className={`capitalize z-0 ${pokemon.types[0].type.name}`}
+								idPokemon={pokemon.id}
+								namePokemon={pokemon.name}
+								imagePokemon={pokemon.sprites.front_default}
+								typePokemon={pokemon.types[0].type.name}
+							/>
+
+						</Link>
 					))}
+
 
 
 				</div>
 
-			</div>
+			</div >
 
 		</>
 	);
