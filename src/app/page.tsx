@@ -9,19 +9,19 @@ import { Header } from "./components/Header/Header";
 import Card from "./components/Card/Card";
 import { Pagination } from "./components/Pagination/Pagination";
 
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 
 export default function Home() {
 	//Falta tipar useState
-	const [pokemons, setPokemons] = useState<any[]>([]);
+	const [pokemons, setPokemons] = useState<any[]>([]);// hehe
 	const [currentPage, setCurrentPage] = useState(1);
 	const [loading, setLoading] = useState(false);
-	const [headerError, setHeaderError] = useState<string | null>(null);
+	const [headerError, setHeaderError] = useState<string | null>(null); //tendi não
 
-	const urlBase = 'https://pokeapi.co/api/v2';
-
+	const urlBase = process.env.NEXT_PUBLIC_POKEAPI_BASE_URL;
+	console.log(urlBase)
 
 
 	useEffect(() => {
@@ -124,51 +124,52 @@ export default function Home() {
 
 	return (
 		<>
-			<div className="max-w-5xl mx-auto px-4 py-6">
-				<Header
-					title="Pokedex"
-					pokemonSearch={pokemonSearch}
-					onError={headerError}
-				/>
+			<div className="bg-[#E5E5E5]">
+				<div className="max-w-5xl mx-auto px-4 py-6">
+					<Header
+						title="Pokedex"
+						pokemonSearch={pokemonSearch}
+						onError={headerError}
+					/>
 
 
-				<Pagination
-					className="justify-center my-2"
-					currentPage={currentPage}
-					setCurrentPage={setCurrentPage}
-				/>
+					<Pagination
+						className="justify-center my-2"
+						currentPage={currentPage}
+						setCurrentPage={setCurrentPage}
+					/>
 
 
-				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-					{loading && (
-						<div className="absolute z-10 top-0 left-0 w-full h-full flex items-center justify-center bg-white opacity-75">
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+						{loading && (
+							<div className="absolute z-10 top-0 left-0 w-full h-full flex items-center justify-center bg-white opacity-75">
 
-							<Image src={PokeballLoading} alt="Carregando" className="w-40" />
-						</div>
-					)}
-
-
-
-					{pokemons.map((pokemon) => (
-						<Link key={pokemon.id} href={`/pokemon/[pokemonId]`} as={`/pokemon/${pokemon.id}`}>
-
-							<Card
-								className={`capitalize z-0 ${pokemon.types[0].type.name}`}
-								idPokemon={pokemon.id}
-								namePokemon={pokemon.name}
-								imagePokemon={pokemon.sprites.front_default}
-								typePokemon={pokemon.types[0].type.name}
-							/>
-
-						</Link>
-					))}
+								<Image src={PokeballLoading} alt="Carregando" className="w-40" />
+							</div>
+						)}
 
 
 
-				</div>
+						{pokemons.map((pokemon) => (
+							<Link key={pokemon.id} href={`/pokemon/[pokemonId]`} as={`/pokemon/${pokemon.id}`}>
 
-			</div >
+								<Card
+									className={`capitalize z-0 ${pokemon.types[0].type.name}`}
+									idPokemon={pokemon.id}
+									namePokemon={pokemon.name}
+									imagePokemon={pokemon.sprites.front_default}
+									typePokemon={pokemon.types[0].type.name}
+								/>
 
+							</Link>
+						))}
+
+
+
+					</div>
+
+				</div >
+			</div>
 		</>
 	);
 }
